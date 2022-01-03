@@ -19,29 +19,37 @@ function randomValue(min, max) {
 }
 // Plays the game
 function playRound(playerSelection) {
+    playerSelection = playerSelection.toLowerCase();
     // scissors beats paper
-    // player scissors AND computer has paper OR player has paper AND computer has scissors
     computerChoice = computerPlay();
-    if (playerSelection.toLowerCase() === "scissors" && computerChoice === "paper" || playerSelection.toLowerCase() === "paper" && computerChoice === "scissors") {
+    if (playerSelection === "scissors" && computerChoice === "paper" || playerSelection === "paper" && computerChoice === "scissors") {
         if (playerSelection === "scissors") {
             console.log("You win! Scissors beats Paper!")
         }
         else {
             console.log("You lose! Scissors beats Paper!")
         }
+    }
+    // paper beats rock
+    else if (playerSelection === "rock" && computerChoice === "paper" || playerSelection === "paper" && computerChoice === "rock") {
+        if (playerSelection === "rock") {
+            console.log("You lose! Paper beats Rock!")
+        }
+        else {
+            console.log("You win! Paper beats Rock!")
+        }
+    }
+    // rock beats scissors
+    else if (playerSelection === "rock" && computerChoice === "scissors" || playerSelection === "scissors" && computerChoice === "rock") {
+        if (playerSelection === "rock") {
+            console.log("You win! Rock beats Scissors!")
+        }
+        else {
+            console.log("You lose! Rock beats Scissors!")
+        }
+    }
+    // samesies
+    else {
+        console.log("You both chose " + playerSelection + ". Try again!");
     }
 }
-
-// scissors beats paper
-    // player scissors AND computer has paper OR player has paper AND computer has scissors
-    if (playerSelection.toLowerCase() === "scissors" && computerSelection === "paper" || playerSelection.toLowerCase() === "paper" && computerSelection === "scissors") {
-        if (playerSelection === "scissors") {
-            console.log("You win! Scissors beats Paper!")
-        }
-        else {
-            console.log("You lose! Scissors beats Paper!")
-        }
-    }
-// paper beats rock
-// rock beats scissors
-// samesies
