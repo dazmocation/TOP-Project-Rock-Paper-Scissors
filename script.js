@@ -18,11 +18,11 @@ function randomValue(min, max) {
     return Math.floor(Math.random(Date.now()) * (max - min + 1) + min);
 }
 // Plays the game
-function playRound(playerSelection, computerPlay) {
+function playRound(playerSelection) {
     // scissors beats paper
     // player scissors AND computer has paper OR player has paper AND computer has scissors
-    console.log(playerSelection, computerPlay);
-    if (playerSelection.toLowerCase() === "scissors" && computerPlay === "paper" || playerSelection.toLowerCase() === "paper" && computerPlay === "scissors") {
+    computerChoice = computerPlay();
+    if (playerSelection.toLowerCase() === "scissors" && computerChoice === "paper" || playerSelection.toLowerCase() === "paper" && computerChoice === "scissors") {
         if (playerSelection === "scissors") {
             console.log("You win! Scissors beats Paper!")
         }
