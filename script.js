@@ -56,17 +56,12 @@ function playRound(playerSelection) {
     }
     // samesies
     else {
-        console.log("You both chose " + playerSelection + ". Try again!");
+        console.log("You tied, because you both chose " + playerSelection + "!");
         return 0;
     }
 }
 
-function game() {
-    let score = 0
-    console.log("Let's play a game! Best of 5 wins!")
-    for (let i = 0; i < 5; i++) {
-        score = score + playRound(prompt("What do you want to play? Rock / Paper / Scissors"));
-    }
+function scoreGame(score) {
     if (score > 0) {
         console.log("Congratulations! You win!")
     }
@@ -76,4 +71,13 @@ function game() {
     else {
         console.log("Oops! You tied! Try again!")
     }
+}
+
+function game() {
+    let score = 0
+    console.log("Let's play a game! Best of 5 wins!")
+    for (let i = 0; i < 5; i++) {
+        score = score + playRound(prompt("What do you want to play? Rock / Paper / Scissors"));
+    }
+    scoreGame(score);
 }
