@@ -85,4 +85,17 @@ function game() {
 const rock = document.getElementById("rock");
 rock.addEventListener('click',function(){
     playRound("rock");
+    rock.style.borderColor = "yellow";
+});
+
+const paper = document.getElementById("paper");
+paper.addEventListener('click',function(){
+    playRound("paper");
+    paper.style.borderColor = "yellow";
+});
+
+const scissors = document.getElementById("scissors");
+scissors.addEventListener('click',function(){
+    playRound("scissors");
+    scissors.style.borderColor = "yellow";
 });
