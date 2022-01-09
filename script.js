@@ -63,7 +63,7 @@ function playRound(playerSelection) {
 }
 */
 //scores the game
-function scoreGame(score) {
+/*function scoreGame(score) {
     if (score > 0) {
         console.log("Congratulations! You win!")
     }
@@ -74,6 +74,7 @@ function scoreGame(score) {
         console.log("Oops! You tied! Try again!")
     }
 }
+*/
 /*plays 5 rounds
 function game() {
     let score = 0;
@@ -101,6 +102,9 @@ function game() {
 
 function playRound(playerChoice) {
     computerChoice = computerPlay();
+    rock.style.borderColor = "white";
+    paper.style.borderColor = "white";
+    scissors.style.borderColor = "white";
     if (playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "paper" && computerChoice === "rock" || playerChoice === "scissors" && computerChoice === "paper") {
         return "win";
     }
@@ -112,6 +116,11 @@ function playRound(playerChoice) {
     }
 }
 
+const newGameButton = document.getElementById("newGame");
+newGameButton.addEventListener('click',function(){
+    game();
+});
+
 //display to start a game
 //click here to start
 function game(){
@@ -119,28 +128,46 @@ function game(){
     let computerScore = 0;
     let gameOn = true;
     //main game loop
+    //display chose your throw
     while (gameOn === true){
         //choose your throw
         const rock = document.getElementById("rock");
         rock.addEventListener('click',function(){
-            playRound("rock");
             rock.style.borderColor = "yellow";
+            if (playRound("rock") === "win") {
+                playerScore++;
+                //display you win, pick again
+            };
+            else if (playRound("rock") === "lose") {
+                computerScore++;
+                //display you lose, pick again
+            }
+            else {
+                //display you tied, pick again
+            }
+            if (playerScore === 5) {
+                //display you won 5 times! congrats
+                gameOn = false;
+            }
+            else if (computerScore === 5) {
+                //display the computer won 5 times! you lose!
+                gameOn = false;
+            }
         });
         
         const paper = document.getElementById("paper");
         paper.addEventListener('click',function(){
-            playRound("paper");
             paper.style.borderColor = "yellow";
+            playRound("paper");
+            
         });
         
         const scissors = document.getElementById("scissors");
         scissors.addEventListener('click',function(){
-            playRound("scissors");
             scissors.style.borderColor = "yellow";
+            playRound("scissors");
+            
         });
-        //highlight the selection and insert into the player selection
-        //run the computer's selection
-        //compare the selections
         //score the round
         //record the score
         //display the result and offer next selection
