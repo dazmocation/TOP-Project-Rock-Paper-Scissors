@@ -60,7 +60,7 @@ function playRound(playerSelection) {
         return 0;
     }
 }
-
+//scores the game
 function scoreGame(score) {
     if (score > 0) {
         console.log("Congratulations! You win!")
@@ -72,7 +72,7 @@ function scoreGame(score) {
         console.log("Oops! You tied! Try again!")
     }
 }
-
+//plays 5 rounds
 function game() {
     let score = 0
     console.log("Let's play a game! Best of 5 wins!")
@@ -81,3 +81,8 @@ function game() {
     }
     scoreGame(score);
 }
+
+const rock = document.getElementById("rock");
+rock.addEventListener('click',function(){
+    playRound("rock");
+});
