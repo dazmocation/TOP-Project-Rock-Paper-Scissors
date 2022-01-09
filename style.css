@@ -69,15 +69,17 @@ h6 {
 
 .results {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 75px;
+    height: 150px;
 }
 
-.instructions {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.newGame {
+    font-size: 1em;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 10px;
 }
 
 .buttons {
