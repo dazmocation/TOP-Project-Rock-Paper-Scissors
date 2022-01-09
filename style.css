@@ -1,0 +1,25 @@
+* {
+    background-color: black;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+
+}
+
+h6 {
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.gameButton {
+
+}
