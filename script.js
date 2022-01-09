@@ -18,6 +18,7 @@ function randomValue(min, max) {
     return Math.floor(Math.random(Date.now()) * (max - min + 1) + min);
 }
 // Plays a round of the game
+/*
 function playRound(playerSelection) {
     playerSelection = playerSelection.toLowerCase();
     computerChoice = computerPlay();
@@ -60,6 +61,7 @@ function playRound(playerSelection) {
         return 0;
     }
 }
+*/
 //scores the game
 function scoreGame(score) {
     if (score > 0) {
@@ -95,31 +97,56 @@ function game() {
     console.log(rocks + " " + papers + " " + scissorss);
 }
 */
-const rock = document.getElementById("rock");
-rock.addEventListener('click',function(){
-    playRound("rock");
-    rock.style.borderColor = "yellow";
-});
 
-const paper = document.getElementById("paper");
-paper.addEventListener('click',function(){
-    playRound("paper");
-    paper.style.borderColor = "yellow";
-});
 
-const scissors = document.getElementById("scissors");
-scissors.addEventListener('click',function(){
-    playRound("scissors");
-    scissors.style.borderColor = "yellow";
-});
+function playRound(playerChoice) {
+    computerChoice = computerPlay();
+    if (playerChoice === "rock" && computerChoice === "scissors" || playerChoice === "paper" && computerChoice === "rock" || playerChoice === "scissors" && computerChoice === "paper") {
+        return "win";
+    }
+    else if (computerChoice === "rock" && playerChoice === "scissors" || computerChoice === "paper" && playerChoice === "rock" || computerChoice === "scissors" && playerChoice === "paper") {
+        return "lose";
+    }
+    else {
+        return "tie";
+    }
+}
 
-//Start a new game
+//display to start a game
+//click here to start
 function game(){
     let playerScore = 0;
     let computerScore = 0;
     let gameOn = true;
+    //main game loop
     while (gameOn === true){
+        //choose your throw
+        const rock = document.getElementById("rock");
+        rock.addEventListener('click',function(){
+            playRound("rock");
+            rock.style.borderColor = "yellow";
+        });
         
+        const paper = document.getElementById("paper");
+        paper.addEventListener('click',function(){
+            playRound("paper");
+            paper.style.borderColor = "yellow";
+        });
+        
+        const scissors = document.getElementById("scissors");
+        scissors.addEventListener('click',function(){
+            playRound("scissors");
+            scissors.style.borderColor = "yellow";
+        });
+        //highlight the selection and insert into the player selection
+        //run the computer's selection
+        //compare the selections
+        //score the round
+        //record the score
+        //display the result and offer next selection
+    //when a score = 5, gameOn = false
+        //display final score and result    
+        //exit, offer to play again
     }
 }
 
