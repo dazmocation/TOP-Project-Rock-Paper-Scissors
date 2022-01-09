@@ -72,16 +72,29 @@ function scoreGame(score) {
         console.log("Oops! You tied! Try again!")
     }
 }
-//plays 5 rounds
+/*plays 5 rounds
 function game() {
-    let score = 0
+    let score = 0;
+    let rocks = 0;
+    let papers = 0;
+    let scissorss = 0;
     console.log("Let's play a game! Best of 5 wins!")
-    for (let i = 0; i < 5; i++) {
-        score = score + playRound(prompt("What do you want to play? Rock / Paper / Scissors"));
+    for (let i = 0; i < 1000; i++) {
+        score = score + playRound("rock");
+        if (computerChoice === "rock") {
+            rocks++;
+        }
+        else if (computerChoice === "paper") {
+            papers++;
+        }
+        else {
+            scissorss++;
+        }
     }
     scoreGame(score);
+    console.log(rocks + " " + papers + " " + scissorss);
 }
-
+*/
 const rock = document.getElementById("rock");
 rock.addEventListener('click',function(){
     playRound("rock");
@@ -99,3 +112,22 @@ scissors.addEventListener('click',function(){
     playRound("scissors");
     scissors.style.borderColor = "yellow";
 });
+
+//Start a new game
+function game(){
+    let playerScore = 0;
+    let computerScore = 0;
+    let gameOn = true;
+    while (gameOn === true){
+        
+    }
+}
+
+//select your play
+//display your selection
+//display computer's selection
+//display results
+//record results
+//play next round x n until 5 wins
+//display final results
+//offer to start again
