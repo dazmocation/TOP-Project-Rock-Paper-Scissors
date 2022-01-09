@@ -17,6 +17,7 @@ header {
 
 main {
     display: flex;
+    flex-direction: column;
     justify-content: center;
 }
 
@@ -24,6 +25,10 @@ footer {
     display: flex;
     justify-content: center;
     margin-top: auto;
+}
+
+a {
+    text-decoration: none;
 }
 
 h1 {
@@ -34,6 +39,47 @@ h6 {
     
 }
 
+.gameArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameArea h3 {
+    margin: 0 25px;
+}
+
+.selections {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.choice p {
+    margin-top: -30px;
+}
+
+.results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.instructions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .buttons {
     display: flex;
     justify-content: center;
@@ -41,6 +87,7 @@ h6 {
 
 .gameButton {
     display: flex;
+    flex-direction: column;
     border: 5px white solid;
     height: 200px;
     width: 200px;
@@ -48,4 +95,8 @@ h6 {
     justify-content: center;
     align-items: center;
     border-radius: 25px;
+}
+
+.gameButton p {
+    font-weight: bold;
 }
