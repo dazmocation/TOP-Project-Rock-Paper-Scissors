@@ -118,64 +118,86 @@ function playRound(playerChoice) {
 
 const newGameButton = document.getElementById("newGame");
 newGameButton.addEventListener('click',function(){
-    game();
+    newGame();
 });
+
+const output = document.getElementById("results");
+const notification = document.getElementById("notifications");
 
 //display to start a game
 //click here to start
-function game(){
+function newGame() {
     let playerScore = 0;
     let computerScore = 0;
-    let gameOn = true;
-    //main game loop
-    //display chose your throw
-    while (gameOn === true){
-        //choose your throw
-        const rock = document.getElementById("rock");
-        rock.addEventListener('click',function(){
-            rock.style.borderColor = "yellow";
-            if (playRound("rock") === "win") {
-                playerScore++;
-                //display you win, pick again
-            };
-            else if (playRound("rock") === "lose") {
-                computerScore++;
-                //display you lose, pick again
-            }
-            else {
-                //display you tied, pick again
-            }
-            if (playerScore === 5) {
-                //display you won 5 times! congrats
-                gameOn = false;
-            }
-            else if (computerScore === 5) {
-                //display the computer won 5 times! you lose!
-                gameOn = false;
-            }
-        });
+    output.innerHTML = "CHOOSE YOUR THROW"
+    //choose your throw
+}
+
+/*function checkScore (playerScore,computerScore) {
+    if (playerScore === 5) {
+        output.innerHTML = "<button id="newGame">START A NEW GAME</button>"
+        notification.innerHTML = "You've won 5 rounds! Congratulations! Play again?"
+    }
+    else if (computerScore === 5) {
+        output.innerHTML = "<p><button id="newGame">START A NEW GAME</button></p>"
+        notification.innerHTML = "The computer has won 5 rounds! You lose! Play again?"
+    }
+}
+*/
+const rock = document.getElementById("rock");
+rock.addEventListener('click',function(){
+    if (playRound("rock") === "win") {
+        playerScore++;
+        output.innerHTML = "Rock beats Scissors! Choose again!"
+    }
+    else if (playRound("rock") === "lose") {
+        computerScore++;
+        output.innerHTML = "Paper beats Rock! Choose again!"
+    }
+    else {
+        output.innerHTML = "You tied! Choose again!"
+    }
+    checkScore(playerScore,computerScore);
+});
         
-        const paper = document.getElementById("paper");
-        paper.addEventListener('click',function(){
-            paper.style.borderColor = "yellow";
-            playRound("paper");
-            
-        });
-        
-        const scissors = document.getElementById("scissors");
-        scissors.addEventListener('click',function(){
-            scissors.style.borderColor = "yellow";
-            playRound("scissors");
-            
-        });
+const paper = document.getElementById("paper");
+paper.addEventListener('click',function(){
+    if (playRound("paper") === "win") {
+        playerScore++;
+        output.innerHTML = "Paper beats Scissors! Choose again!"
+    }
+    else if (playRound("paper") === "lose") {
+        computerScore++;
+        output.innerHTML = "Rock beats Paper! Choose again!"
+    }
+    else {
+        output.innerHTML = "You tied! Choose again!"
+    }
+    checkScore(playerScore,computerScore);
+});
+
+const scissors = document.getElementById("scissors");
+scissors.addEventListener('click',function(){
+    if (playRound("scissors") === "win") {
+        playerScore++;
+        output.innerHTML = "Scissors beats Paper! Choose again!"
+    }
+    else if (playRound("scissors") === "lose") {
+        computerScore++;
+        output.innerHTML = "Rock beats Scissors! Choose again!"
+    }
+    else {
+        output.innerHTML = "You tied! Choose again!"
+    }
+    checkScore(playerScore,computerScore);
+    
+});
         //score the round
         //record the score
         //display the result and offer next selection
     //when a score = 5, gameOn = false
         //display final score and result    
         //exit, offer to play again
-    }
-}
 
 //select your play
 //display your selection
