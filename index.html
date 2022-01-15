@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script src="script.js" type="text/javascript" defer></script>
+    <script src="script2.js" type="text/javascript" defer></script>
     <title>Rock Paper Scissors</title>
 </head>
 <body>
@@ -14,12 +14,15 @@
     </header>
     <main>
         <div class="gameArea">
-            <div class="selections" id="playerSelection">
+            <div class="selections">
                 <div class="choice">
-                    <div class="gameButton">
+                    <div class="gameButton" id="playerSelection">
 
                     </div>
                     <p>PLAYER SELECTION</p>
+                    <div class="score">
+                        <h2 id="playerDisplay">0</h2>
+                    </div>
                 </div>
                 <h3>VS</h3>
                 <div class="choice">
@@ -27,13 +30,13 @@
                         
                     </div>
                     <p>COMPUTER SELECTION</p>
+                    <div class="score">
+                        <h2 id="computerDisplay">0</h2>
+                    </div>
                 </div>
             </div>
             <div id="results">
-                <p><button id="newGame">START A NEW GAME</button></p>
-            </div>
-            <div id="notification">
-                <p></p>
+                <p><button class="newGame">START A NEW GAME</button></p>
             </div>
         </div>
         <div class="buttons">

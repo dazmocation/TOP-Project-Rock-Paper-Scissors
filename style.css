@@ -76,7 +76,7 @@ h6 {
     height: 150px;
 }
 
-#newGame {
+.newGame {
     font-size: 1em;
     font-weight: bold;
     padding: 8px 16px;
@@ -102,4 +102,12 @@ h6 {
 
 .gameButton p {
     font-weight: bold;
+}
+
+#playerSelection p {
+    margin-top: 15px;
+}
+
+#computerSelection p {
+    margin-top: 15px;
 }
